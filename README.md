@@ -1,7 +1,11 @@
-# TDA score decomposition
+# Functional Dependency beyond Similarity: Hierarchical Decomposition of Training Data Attribution in Music Generative Models
 
-Splits a training-data attribution score matrix into Global, Group and Specific parts, for MusicGen and InspireMusic
-fine-tuned on MTG-Jamendo. Products under `--root` are listed in `docs/layout.md`. Run everything from the repository root.
+[![arXiv](https://img.shields.io/badge/arXiv-2611.08839-b31b1b.svg)](https://arxiv.org/abs/2611.08839)
+
+Copyright analysis focuses on the similarity between two works. However, generative AI models learn from training data through functional relations beyond similarity. Training Data Attribution (TDA) estimates the influence of each training instance on a generated output and may serve as a basis for remuneration. However, prior studies find global influence, where a few training instances rank as the most influential for almost every generation. Used directly, TDA scores would distribute part of every remuneration to these instances regardless of what was generated. To address this, we propose a new approach in which TDA scores are decomposed into three levels of influence, namely global indicating the influence of a training data to a trained model, group for its influence on a group of generated outputs (that could be clustered together), and specific for its influence on a single generated output. Our study finds that, across several music generative models and TDA methods, global- and group-level influence is non-negligible in every case. Based on these observations, we propose the term functional dependency for the relation of training data to a trained model or to its outputs. This notion both encompasses and distinguishes dependencies of different scopes, allowing TDA scores to be interpreted as distinct forms of contribution in legal, economic and ethical discussions on remuneration.
+
+The code splits a TDA score matrix into Global, Group and Specific parts, for MusicGen and InspireMusic fine-tuned on
+MTG-Jamendo. Products under `--root` are listed in `docs/layout.md`. Run everything from the repository root.
 
 ## Setup
 
@@ -70,3 +74,7 @@ python -m decomp deletion-effects --root R --model M --method trak_lam1
 python -m decomp heatmap --root R
 python -m decomp dataset --root R --jamendo JAMENDO_REPO
 ```
+
+## Paper
+
+[arXiv:2611.08839](https://arxiv.org/abs/2611.08839)
